@@ -1,0 +1,8 @@
+.list-nested-view {
+  list-style-type: none;
+}
+
+.list-item-nested-view {
+  margin: 3px 0 5px 0;
+  padding: 3px;
+}

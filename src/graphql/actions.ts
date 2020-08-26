@@ -6,7 +6,6 @@ export const LANGUAGES = gql`
       code
       name
       native
-      rtl
     }
   }
 `;
