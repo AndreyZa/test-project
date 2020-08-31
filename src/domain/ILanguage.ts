@@ -1,6 +1,8 @@
-export interface ILanguage {
+import { IGraphQLTypingReceivedData } from './IGraphQLTypingsReceivedData';
+
+export interface ILanguage extends IGraphQLTypingReceivedData {
   code?: string;
-  name: string | undefined;
+  name: string;
   native?: string;
   rtl?: boolean;
 }

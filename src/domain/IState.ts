@@ -1,7 +1,5 @@
-import { ICountry } from './ICountry';
+import { IGraphQLTypingReceivedData } from './IGraphQLTypingsReceivedData';
 
-export interface IState {
-  code?: string;
-  name: string | undefined;
-  country?: ICountry;
+export interface IState extends IGraphQLTypingReceivedData {
+  name: string;
 }

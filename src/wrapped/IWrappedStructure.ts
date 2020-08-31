@@ -1,23 +1,15 @@
 import { ILanguage } from '../domain/ILanguage';
 import { IContinent } from '../domain/IContinent';
 import { ICountry } from '../domain/ICountry';
+import { IState } from '../domain/IState';
 
-type ModifiedStructure = {
-  __typename?: string;
-};
-
-// typings for received data from server
-export interface ILanguageStructure extends ModifiedStructure, ILanguage {}
-export interface ICountryStructure extends ModifiedStructure, ICountry {}
-export interface IContinentStructure extends ModifiedStructure, IContinent {}
-
+// todo: refactor wrapped logic
 export interface IWrappedStructure {
   name: string;
-  childs:
-    | ILanguageStructure
-    | IContinentStructure
-    | ICountryStructure
-    | ILanguageStructure[]
-    | IContinentStructure[]
-    | ICountryStructure[];
+  childs: ILanguage | IContinent | ICountry | ILanguage[] | IContinent[] | ICountry[];
+}
+
+export interface IWrapped {
+  name: string;
+  childs: ILanguage[] | ICountry[] | IContinent[] | IState[];
 }
