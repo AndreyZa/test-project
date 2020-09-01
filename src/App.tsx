@@ -1,15 +1,15 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from './graphql/apolloClient';
-import Languages from './components/Languages';
-import Continents from './components/Continents';
+import { Languages, Continents, Countries } from './components/pieces';
 
 // todo make collapsible logic via context
-// replace and refactor model logic
+// @TODO: replace and refactor model logic
 const App: React.FC = () => (
   <ApolloProvider client={apolloClient}>
     <Languages />
     <Continents />
+    <Countries />
   </ApolloProvider>
 );
 

@@ -36,6 +36,7 @@ export const CONTINENTS = gql`
       name
       countries {
         name
+        emoji
         states {
           name
         }

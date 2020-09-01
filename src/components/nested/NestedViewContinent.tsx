@@ -2,31 +2,29 @@ import React from 'react';
 import { IState } from '../../domain/IState';
 import { IContinent } from '../../domain/IContinent';
 import { Nested } from './Nested';
+import { NestedListView } from './NestedListView';
 import { ICountry } from '../../domain/ICountry';
 import '../../styles/NestedViewContinent.css';
 
 // todo: refactor NestedView.tsx
+// @TODO: refactor NestedView***.tsx
 export const NestedViewContinent: React.FC<IContinent> = ({ name, countries }) => {
   return (
     <div>
-      <Nested name={name}>
+      <Nested name={name as string}>
         <ul className="list-nested-view">
           <li className="list-item-nested-view-continent">
-            {countries.map((country: ICountry, index: number) => (
+            {(countries as ICountry[]).map((country: ICountry, index: number) => (
               <Nested
-                key={index + country.name}
-                name={country.name}
-                withOutChildren={country.states.length === 0}
+                key={index + (country.name as string)}
+                name={country.name + ` ${country.emoji}`}
+                withOutChildren={(country.states as IState[]).length === 0}
               >
-                {!country.states.length ? null : (
-                  <ul className="list-nested-view">
-                    {country.states.map((state: IState, index: number) => (
-                      <li key={state.name + index} className="nested-label list-item-nested-view">
-                        {state.name}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <ul className="list-nested-view list-item-nested-view-continent">
+                  {(country.states as IState[]).length ? (
+                    <NestedListView name={'States'} list={country.states as IState[]} />
+                  ) : null}
+                </ul>
               </Nested>
             ))}
           </li>

@@ -1,3 +1,3 @@
 export interface IGraphQLTypingReceivedData {
-  __typename: string;
+  __typename?: string;
 }

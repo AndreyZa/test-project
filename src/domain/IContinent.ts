@@ -3,6 +3,6 @@ import { IGraphQLTypingReceivedData } from './IGraphQLTypingsReceivedData';
 
 export interface IContinent extends IGraphQLTypingReceivedData {
   code?: string;
-  name: string;
-  countries: ICountry[];
+  name?: string;
+  countries?: ICountry[];
 }
