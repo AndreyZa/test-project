@@ -3,6 +3,7 @@ import { ILanguage } from '../../domain/ILanguage';
 import { IState } from '../../domain/IState';
 import { ICountry } from '../../domain/ICountry';
 import { Nested } from './Nested';
+import { NestedListItem } from './NestedListItem';
 
 export interface INestedListViewProps {
   name: string;
@@ -14,12 +15,12 @@ export const NestedListView: React.FC<INestedListViewProps> = ({ name, list }) =
     {
       <ul className="list-nested-view">
         {list.map((listItem: ILanguage | IState | ICountry, index: number) => (
-          <li
+          <NestedListItem
             key={(listItem.name as string) + index}
             className="nested-label list-item-nested-view"
           >
             {listItem.name}
-          </li>
+          </NestedListItem>
         ))}
       </ul>
     }

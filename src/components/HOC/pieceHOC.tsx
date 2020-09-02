@@ -26,9 +26,10 @@ export const pieceHOC = (queryAction: DocumentNode, name: RootNode): React.FC =>
       return <span>Error</span>;
     }
 
+    // end context
     return (
       <div className="piece">
-        <Nested name={name}>
+        <Nested name={name} root>
           <ul>
             {data[name.toLowerCase()].map(
               (fetchedData: ILanguage | IContinent | ICountry, index: number) =>
