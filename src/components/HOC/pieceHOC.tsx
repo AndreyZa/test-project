@@ -4,6 +4,7 @@ import { ILanguage } from '../../domain/ILanguage';
 import { ICountry } from '../../domain/ICountry';
 import { IContinent } from '../../domain/IContinent';
 import { Nested } from '../nested/Nested';
+import { PieceMessage } from '../pieces/PieceMessage';
 
 export interface IPieceProps {
   name: string;
@@ -18,15 +19,11 @@ export const pieceHOC = (queryAction: DocumentNode, name: RootNode): React.FC =>
   const Piece: React.FC = ({ children }) => {
     const { loading, error, data } = useQuery(queryAction);
 
-    if (loading) {
-      return <span>Loading</span>;
+    if (loading || error) {
+      const message = loading ? 'Loading' : 'Error';
+      return <PieceMessage title={name} message={message} />;
     }
 
-    if (error) {
-      return <span>Error</span>;
-    }
-
-    // end context
     return (
       <div className="piece">
         <Nested name={name} root>
